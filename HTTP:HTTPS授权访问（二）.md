@@ -6,7 +6,7 @@
 
 第一步:客户端向服务端发起https请求(图中1).
 
-第二步:从图中可以看出这个阶段包含4个过程(图中2,3,4,5)有的服务端是单条发送,有的是合并一起发送.服务端返回协商的信息结果,包括选择使用的协议版本,选择的加密套件,选择的压缩算法、随机数random_S等,其中随机数用于后续的密钥协商。服务器也会配置并返回对应的证书链Certificate，用于身份验证与密钥交换.然后会发送ServerHelloDone信息用于通知客户端信息发送结束(这里在上一篇文章中说到的delegate会被调用)。
+第二步:从图中可以看出这个阶段包含4个过程(图中2,3,4,5)有的服务端是单条发送,有的是合并一起发送.服务端返回协商的信息结果,包括选择使用的协议版本,选择的加密套件,选择的压缩算法、随机数random_S等,其中随机数用于后续的密钥协商。服务器也会配置并返回对应的证书链Certificate，用于身份验证与密钥交换.然后会发送ServerHelloDone信息用于通知客户端信息发送结束(这里在[上一篇](https://github.com/fmxfmx/PermissionsValidation/blob/master/iOS中HTTP:HTTPS授权访问(一).md)文章中说到的delegate会被调用)。
 
 第三步:这一步是由客户端收到服务端返回的信息后要进行解析,校验,在通过校验后需要返回给服务端一个带有证书加密的随机值(图中6,7,8),这个随机值的作用就是让服务端和客户端建立一条由这个随机值建立的秘密通道,以后所有的信息都在这条秘密通道中传输,并且用这个随机值来进行加解密(图中9,10).
 
@@ -100,7 +100,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 
 4.将`credential`以及`disposition`回传给服务器.
 
-在HTTP/HTTPS授权访问（一）中已经对`NSURLCredential`,`NSURLSessionAuthChallengeDisposition`做了详细的介绍,这里主要说下以下几个:
+在[iOS中HTTP/HTTPS授权访问（一）](https://github.com/fmxfmx/PermissionsValidation/blob/master/iOS中HTTP:HTTPS授权访问(一).md)中已经对`NSURLCredential`,`NSURLSessionAuthChallengeDisposition`做了详细的介绍,这里主要说下以下几个:
 
 ###SecTrustRef
 这是一个需要验证的信任对象,包含待验证的证书和支持的验证方法等.
@@ -158,3 +158,9 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 其实除了与本地证书校验以外,还可以将服务端回传的证书公钥与本地证书的公钥进行比对,这里就不给出示例了,详细可以参考AFNetworking中的`AFSecurityPolicy`类.
 
 整个iOS中的HTTP/HTTPS授权到访问到这里就结束了,感谢阅读.
+
+参考博文:
+
+<http://blog.csdn.net/tencent_bugly/article/details/54572899>
+
+<http://www.jianshu.com/p/a84237b07611>
