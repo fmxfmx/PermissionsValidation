@@ -148,6 +148,9 @@ NSURLAuthenticationMethodServerTrust // ServerTrust认证,适用于任何协议
 
 参考博文:
 <http://blog.csdn.net/wangyangzhizhou/article/details/51336038?utm_source=tuicool&utm_medium=referral>
+
 <http://blog.csdn.net/u014084081/article/details/53610157>
+
 <http://www.cnblogs.com/eileenleung/p/5237682.html>
+
 <http://www.jianshu.com/p/4b5d2d47833d>
