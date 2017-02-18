@@ -1,4 +1,4 @@
-#HTTP/HTTPS授权访问（一）
+#iOS中HTTP/HTTPS授权访问（一）
 ##背景
 在http请求中某些url访问需要具有权限认证,否则会返回401错误码,这时需要你在请求头中附带授权的用户名,密码;或者使用https协议第一次与服务端建立连接的时候,服务端会发送iOS客户端一个证书，这时我们需要验证服务端证书链(certificate keychain)。
 当我们遇到以上情况的时候NSURLSession(在iOS7以后网络请求全部由NSURLSession来完成所以在此以NSURLSession为例)中的一个delegate会被调用:
