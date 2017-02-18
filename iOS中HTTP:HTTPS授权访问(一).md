@@ -147,6 +147,7 @@ NSURLAuthenticationMethodServerTrust // ServerTrust认证,适用于任何协议
 其实本文除了介绍`NSURLCredential`与`NSURLAuthenticationChallenge`外还大致讲述了在http请求中的NSURLAuthenticationMethodHTTPDigest(摘要认证)认证的大致流程,在下一篇文章中会着重讲述下https请求中的验证以及客户端的校验过程。
 
 参考博文:
+
 <http://blog.csdn.net/wangyangzhizhou/article/details/51336038?utm_source=tuicool&utm_medium=referral>
 
 <http://blog.csdn.net/u014084081/article/details/53610157>
